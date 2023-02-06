@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('List file') {
+      steps {
+        sh 'docker --version'
+      }
+    }
+
   }
 }
