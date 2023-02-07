@@ -21,7 +21,7 @@ pipeline {
 
     stage('Run docker container') {
       steps {
-        sh 'docker run -d -p 80:80 simple_app --name app'
+        sh 'docker run -d -p 80:80 simple_app'
       }
     }
 
