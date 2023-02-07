@@ -13,5 +13,11 @@ pipeline {
       }
     }
 
+    stage('create a docker image') {
+      steps {
+        sh 'docker build -t simple_app .'
+      }
+    }
+
   }
 }
