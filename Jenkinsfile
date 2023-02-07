@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('List all the files') {
+      steps {
+        sh 'ls -ltr'
+      }
+    }
+
   }
 }
