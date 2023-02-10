@@ -1,0 +1,23 @@
+name: Docker push
+
+on:
+  push:
+    branches: [ main ]
+    
+    
+jobs:
+   deploy:
+     runs-on: ubuntu-latest
+     
+     steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+        
+      - name: Build the docker image
+        run: docker build . --tag ${{secrets.DOCKER_USERNAME}}/my_app
+        
+      - name: Docker login
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ DOKCER_USERNAME }} --password-stdin
+        
+      - name: Push to Dockerhub
+        run: docker push ${ {secrets.DOCKER_USERNAME }}/my_app
