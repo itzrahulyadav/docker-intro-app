@@ -21,7 +21,7 @@ jobs:
           logout: true
         
       - name: Build the docker image
-        run: docker build . --file Dockerfile --tag itzrahuyadav/rahul-api 
+        run: docker build --tag itzrahuyadav/rahul-api . 
       
       - name: Push to Dockerhub
         run: docker push itzrahulyadav/rahul-api
