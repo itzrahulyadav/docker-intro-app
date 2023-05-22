@@ -21,7 +21,10 @@ jobs:
           logout: true
         
       - name: Build the docker image
-        run: docker build --tag itzrahuyadav/rahul-api . 
+        run: docker build --tag ${{secrets.DOCKER_USERNAME}}/rahul-api . 
+        
+      - name: tag the image
+        run: docker tag ${{secrets.DOCKER_USERNAME}}/rahul-api:latest ${{secrets.DOCKER_USERNAME}}/rahul-api:latest 
       
       - name: Push to Dockerhub
-        run: docker push itzrahulyadav/rahul-api
+        run: docker push ${{secrets.DOCKER_USERNAME}}/rahul-api
